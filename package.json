@@ -1,0 +1,16 @@
+{
+    "name": "mean-app",
+    "version": "1.0.0",
+    "description": "A MEAN.js stack application",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "mongoose": "^5.9.10",
+      "body-parser": "^1.19.0",
+      "cookie-parser": "^1.4.5"
+    }
+  }
+  

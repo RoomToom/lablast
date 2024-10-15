@@ -1,0 +1,36 @@
+<div class="bg-success p-2 text-dark bg-opacity-10">
+    <h2 class="text-center">Groups</h2>
+    <p class="text-center">{{message}}</p>
+
+    <form name="groupForm" novalidate>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Group Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input class="form-control" ng-model="group.name" name="groupName" required>
+                        <div ng-show="groupForm.groupName.$touched && groupForm.groupName.$invalid" class="text-danger">
+                            Group name is required!
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn-primary" ng-click="addGroup()" ng-disabled="groupForm.$invalid">Add Group</button>
+                        <button class="btn-success" ng-click="updateGroup()" ng-disabled="groupForm.$invalid">Update Group</button>
+                    </td>
+                </tr>
+                <tr ng-repeat="group in groups">
+                    <td>{{group.name}}</td>
+                    <td>
+                        <button class="btn-warning" ng-click="editGroup(group)">Edit</button>
+                        <button class="btn-info" ng-click="deleteGroup(group._id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>

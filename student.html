@@ -1,0 +1,60 @@
+<div class="bg-success p-2 text-dark bg-opacity-10">
+    <h2 class="text-center">Students</h2>
+    <p class="text-center">{{message}}</p>
+
+    <form name="studentForm" novalidate>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Birthdate</th>
+                    <th>Group Number</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input class="form-control" ng-model="student.name" name="studentName" required>
+                        <div ng-show="studentForm.studentName.$touched && studentForm.studentName.$invalid" class="text-danger">
+                            Student name is required!
+                        </div>
+                    </td>
+                    <td>
+                        <input class="form-control" ng-model="student.surname" name="studentSurname" required>
+                        <div ng-show="studentForm.studentSurname.$touched && studentForm.studentSurname.$invalid" class="text-danger">
+                            Surname is required!
+                        </div>
+                    </td>
+                    <td>
+                        <input class="form-control" ng-model="student.birthdate" type="date" name="studentBirthdate" required>
+                        <div ng-show="studentForm.studentBirthdate.$touched && studentForm.studentBirthdate.$invalid" class="text-danger">
+                            Birthdate is required!
+                        </div>
+                    </td>
+                    <td>
+                        <input class="form-control" ng-model="student.groupNumber" name="studentGroupNumber" required>
+                        <div ng-show="studentForm.studentGroupNumber.$touched && studentForm.studentGroupNumber.$invalid" class="text-danger">
+                            Group number is required!
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn-primary" ng-click="addStudent()" ng-disabled="studentForm.$invalid">Add Student</button>
+                        <button class="btn-success" ng-click="updateStudent()" ng-disabled="studentForm.$invalid">Update Student</button>
+                    </td>
+                </tr>
+                <tr ng-repeat="student in students">
+                    <td>{{student.name}}</td>
+                    <td>{{student.surname}}</td>
+                    <td>{{student.birthdate | date: 'yyyy-MM-dd'}}</td>
+                    <td>{{student.groupNumber}}</td>
+                    <td>
+                        <button class="btn-info" ng-click="delete(student._id)">Delete</button>
+                        <button class="btn-warning" ng-click="editStudent(student)">Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
